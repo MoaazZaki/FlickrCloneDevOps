@@ -1,0 +1,24 @@
+version: "3"
+services: 
+    client:
+        build: ./Flickr-Frontend
+        image: moaazzaki/flickr-client:latest
+        container_name: client
+        stdin_open: true
+        ports:
+            - "3000:3000"
+        networks: 
+            - flickr-network
+    
+    server:
+        build: ./FlickrCloneBE
+        image: moaazzaki/flickr-server:latest
+        container_name: server
+        ports:
+            - "3001:3001"
+        networks: 
+            - flickr-network
+
+networks: 
+    flickr-network:
+        driver: bridge
