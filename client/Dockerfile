@@ -7,7 +7,7 @@ ENV PATH /app/node_modules/.bin:$PATH
 # Copy packeges to install it
 COPY package.json ./
 COPY package-lock.json ./
-COPY ./public/* ./public
+COPY ./public/* ./public/ 
 
 RUN ls -d * */*
 
