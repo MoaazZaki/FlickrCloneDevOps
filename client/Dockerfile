@@ -10,7 +10,7 @@ COPY package-lock.json ./
 
 RUN npx npm-force-resolutions
 RUN npm install 
-RUN yarn build
+#RUN yarn build
 # Give npm some permissions
 RUN npm config set unsafe-perm true
 # Copy all files
@@ -18,4 +18,4 @@ COPY . ./
 # Run on port 3000
 EXPOSE 3000
 # Start the app
-CMD ["serve","-s", " build"]
+CMD ["yarn", " start"]
