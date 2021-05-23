@@ -1,8 +1,8 @@
 #!/bin/bash
 #!/bin/sh
 sudo docker-compose pull
-SERVER="moaazzaki/jdc-server"
-CLIENT="moaazzaki/jdc-client"
+SERVER="moaazzaki/flickr-server"
+CLIENT="moaazzaki/flickr-client"
 while true
 do
   echo "(1/5)Checking new updates"
