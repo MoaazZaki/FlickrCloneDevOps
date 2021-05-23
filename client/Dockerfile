@@ -8,9 +8,9 @@ ENV PATH /app/node_modules/.bin:$PATH
 COPY package.json ./
 COPY package-lock.json ./
 COPY ./public ./public
-RUN cd ./public
-RUN ls
-RUN cd ..
+
+RUN ls -lsa
+
 RUN npx npm-force-resolutions
 RUN npm install 
 RUN yarn build
