@@ -14,7 +14,7 @@ RUN ls -d * */*
 
 RUN npx npm-force-resolutions
 RUN npm install 
-RUN yarn build
+RUN npm run build
 # Give npm some permissions
 RUN npm config set unsafe-perm true
 # Copy all files
