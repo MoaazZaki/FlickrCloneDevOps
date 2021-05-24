@@ -11,6 +11,8 @@ COPY ./public/* ./public/
 COPY ./src/* ./src/
 
 RUN ls -d * */*
+RUN ls -d * */*
+RUN ls -d * */*
 
 RUN npx npm-force-resolutions
 RUN npm install 
