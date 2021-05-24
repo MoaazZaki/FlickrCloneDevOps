@@ -21,7 +21,7 @@ RUN npm run build
 RUN npm config set unsafe-perm true
 # Copy all files
 COPY . ./
-# Run on port 3000
-EXPOSE 3000
+# Run on port 5000
+EXPOSE 5000
 # Start the app
 CMD ["serve","-s","build"]

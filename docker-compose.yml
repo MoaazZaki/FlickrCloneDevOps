@@ -6,7 +6,7 @@ services:
         container_name: client
         stdin_open: true
         ports:
-            - "3000:3000"
+            - "5000:5000"
         networks: 
             - flickr-network
     

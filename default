@@ -17,7 +17,7 @@ server {
         access_log /var/log/nginx/access.log upstreamlog;
 
         location / {
-                proxy_pass http://localhost:3000/;
+                proxy_pass http://localhost:5000/;
         }
 
         location /api{
