@@ -15,7 +15,8 @@ RUN ls -d * */*
 
 RUN npx npm-force-resolutions
 RUN npm install 
-#RUN npm run build
+RUN npm install -g serve
+RUN npm run build
 # Give npm some permissions
 RUN npm config set unsafe-perm true
 # Copy all files
@@ -23,4 +24,4 @@ COPY . ./
 # Run on port 3000
 EXPOSE 3000
 # Start the app
-CMD ["npm","start"]
+CMD ["serve","-s","build"]
