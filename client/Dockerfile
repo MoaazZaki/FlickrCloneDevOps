@@ -8,9 +8,8 @@ ENV PATH /app/node_modules/.bin:$PATH
 COPY package.json ./
 COPY package-lock.json ./
 COPY ./public/* ./public/ 
-COPY ./src/* ./src/
+ADD ./src/* ./src/
 
-RUN ls -d * */*
 RUN ls -d * */*
 RUN ls -d * */*
 
