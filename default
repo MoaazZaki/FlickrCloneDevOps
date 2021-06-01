@@ -12,9 +12,12 @@ server {
         listen 80 default_server;
         listen [::]:80 default_server;
 
-        server_name _;
+        server_name flickrclone.tech www.flickrclone.tech;
 
         access_log /var/log/nginx/access.log upstreamlog;
+        client_max_body_size 2M;
+        client_body_buffer_size 2M;
+
 
         location / {
                 proxy_pass http://localhost:5000/;
