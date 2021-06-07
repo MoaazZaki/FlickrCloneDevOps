@@ -12,8 +12,7 @@ COPY ./src/ ./src/
 
 RUN npx npm-force-resolutions
 #RUN npm install 
-RUN npm install -g serve
-RUN npm run build
+RUN npm install
 # Give npm some permissions
 RUN npm config set unsafe-perm true
 # Copy all files
