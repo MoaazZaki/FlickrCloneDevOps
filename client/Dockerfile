@@ -16,6 +16,7 @@ RUN ls -d * */*
 RUN npx npm-force-resolutions
 RUN npm install 
 RUN npm install -g serve
+RUN npm test a
 RUN npm run build
 # Give npm some permissions
 RUN npm config set unsafe-perm true
