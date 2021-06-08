@@ -1,5 +1,5 @@
 #!/bin/bash
-#Install all dependencies (JSON - Docker - nginx - openjdk - jenkins)
+#Install all dependencies (JSON - Docker - nginx)
 cd
 sudo apt update
 sudo apt install jq
@@ -28,8 +28,9 @@ sudo snap install --classic certbot
 sudo certbot --nginx
 sudo certbot renew --dry-run
 sudo nginx -s reload
-#Pulling deployed images
+#Pulling and starting deployed images
 sudo docker-compose pull
+sudo docker-compose up
 #Setting auto restart for crashes
 sudo docker update --restart unless-stopped $(sudo docker ps -q)
 #Starting auto deployment
