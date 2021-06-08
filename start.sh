@@ -30,7 +30,7 @@ sudo certbot renew --dry-run
 sudo nginx -s reload
 #Pulling and starting deployed images
 sudo docker-compose pull
-sudo docker-compose up
+sudo docker-compose up -d
 #Setting auto restart for crashes
 sudo docker update --restart unless-stopped $(sudo docker ps -q)
 #Starting auto deployment
