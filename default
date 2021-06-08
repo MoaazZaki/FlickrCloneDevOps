@@ -16,6 +16,7 @@ server {
         server_name flickrclone.tech www.flickrclone.tech;
         # Create file to store the logs at
         access_log /var/log/nginx/access.log upstreamlog;
+        # Allow larger requests size
         client_max_body_size 2M;
         client_body_buffer_size 2M;
 
@@ -51,6 +52,12 @@ server {
                 # Map backend requests to backend ports
                 rewrite ^/api(.*) $1 break;
                 proxy_pass http://notes;
+        }
+
+
+        location /jenkins{
+                proxy_pass http://localhost:8080/;
+
         }
 
 }

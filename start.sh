@@ -1,5 +1,5 @@
 #!/bin/bash
-#Install all dependencies
+#Install all dependencies (JSON - Docker - nginx - openjdk - jenkins)
 cd
 sudo apt update
 sudo apt install jq
