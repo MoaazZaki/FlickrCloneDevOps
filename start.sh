@@ -34,4 +34,4 @@ sudo docker-compose up
 #Setting auto restart for crashes
 sudo docker update --restart unless-stopped $(sudo docker ps -q)
 #Starting auto deployment
-sh auto_update.sh
+sudo sh auto_update.sh
