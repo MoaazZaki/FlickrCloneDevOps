@@ -1,8 +1,11 @@
 #!/bin/bash
 #!/bin/sh
+#Pulling the latest images
 sudo docker-compose pull
+#Set the repos names
 SERVER="moaazzaki/flickr-server"
 CLIENT="moaazzaki/flickr-client"
+#Loop auto-deployment
 while true
 do
   echo "(1/5)Checking new updates"

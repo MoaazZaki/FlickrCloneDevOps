@@ -13,4 +13,3 @@ CURRENT_DIGEST=$(sudo docker image inspect "$REPOSITORY:$TARGET_TAG" --format '{
   else
     echo "false"
   fi
-

@@ -9,12 +9,12 @@ COPY package.json ./
 COPY package-lock.json ./
 COPY ./public/ ./public/ 
 COPY ./src/ ./src/
-
+# Install all dependencies 
 RUN npx npm-force-resolutions
-#RUN npm install 
 RUN npm install
 # Give npm some permissions
 RUN npm config set unsafe-perm true
 # Copy all files
 COPY . ./
+# Start testing
 RUN npm test a

@@ -1,29 +1,31 @@
+# Write request logs at specified file
 log_format upstreamlog '$server_name to: $upstream_addr [$request] '
         'upstream_response_time $upstream_response_time'
         'msec $msec request_time';
-
+# Load balancing backend by dividing requests to 3 ports
 upstream notes{
         server localhost:3001;
         server localhost:3002;
         server localhost:3003;
 }
-
 server {
+        # Put nginx services on port 80
         listen 80 default_server;
         listen [::]:80 default_server;
-
+        # Cahnge server name to mapy public id to it
         server_name flickrclone.tech www.flickrclone.tech;
-
+        # Create file to store the logs at
         access_log /var/log/nginx/access.log upstreamlog;
         client_max_body_size 2M;
         client_body_buffer_size 2M;
 
-
+        # Map frontend to root path
         location / {
                 proxy_pass http://localhost:5000/;
         }
-
+        # Map backend to /api
         location /api{
+                # Set cors configurations
                 set $cors '';
                 if ($http_origin ~ '^https?://(localhost|www\.yourdomain\.com|www\.yourotherdomain\.com)') {
                         set $cors 'true';
@@ -46,7 +48,7 @@ server {
                         return 204;
                 }
 
-
+                # Map backend requests to backend ports
                 rewrite ^/api(.*) $1 break;
                 proxy_pass http://notes;
         }
